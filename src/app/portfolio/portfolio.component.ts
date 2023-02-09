@@ -1,4 +1,6 @@
+import { KitchensService } from './../services/kitchens.service';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-portfolio',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./portfolio.component.css']
 })
 export class PortfolioComponent {
+    kitchens: any=[];
+    constructor(private kitchenService:KitchensService, private router:Router) {}
 
+    ngOnInit() {
+        this.kitchens = this.kitchenService.getKitchens();
+    }
+    goToProject(index: number) {
+        this.router.navigate(['/project', index]);
+    }
 }

@@ -1,1 +1,13 @@
-<p>portfolio works!</p>
+<section class="container">
+    <h2 class="portfolio__title">Portfolio</h2>
+    <ul class="portfolio__list">
+        <li class="portfolio__item" *ngFor="let kitchen of kitchens">
+            <div class="portfolio__item--img" (dblclick)="goToProject(kitchen.reference)">
+                <img src={{kitchen.photo}} alt="Cocina 1">
+            </div>
+            <div class="portfolio__item--content">
+                <p class="portfolio__item--text">{{kitchen.description}}</p>
+            </div>
+        </li>
+    </ul>
+</section>

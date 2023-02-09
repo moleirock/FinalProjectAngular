@@ -10,6 +10,7 @@ import { PriceModifyComponent } from './price-modify/price-modify.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { KitchensService } from './services/kitchens.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { KitchensService } from './services/kitchens.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [KitchensService],
   bootstrap: [AppComponent]

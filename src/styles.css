@@ -1,1 +1,50 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --color-bg: #c0c2a8;
+    --color-text: #292418;
+    --color-white: #fff;
+}
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*,*:before,*:after{
+    margin: 0;
+    padding: 0; 
+}
+
+body{
+    font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+a{
+    text-decoration: none;
+    color: var(--color-text);
+}
+li{
+    list-style: none;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+section{
+    padding: 5rem 2rem;
+}
+h1{
+    font-size: 3.6rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+h2{
+    font-size: 4.4rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+.container{
+    max-width: 1400px;
+    margin: 0 auto;
+}

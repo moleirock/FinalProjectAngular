@@ -1,1 +1,9 @@
-<p>price-modify works!</p>
+<section class="container">
+    <h2 class="modify_title">Modificar Precio</h2>
+    <div class="modify__field">
+        <label for="price">Introduce el nuevo precio</label>
+        <input type="number" name="price" [(ngModel)]="price">
+        <button class="btn" (click)="modifyPrice()">Modificar Precio</button>
+    </div>
+    <button class="btn" (click)="goToPortfolio()">Cerrar</button>
+</section>

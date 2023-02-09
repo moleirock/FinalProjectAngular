@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Router,ActivatedRoute } from '@angular/router';
+import { KitchensService } from '../services/kitchens.service';
+import { Location } from '@angular/common';
+import { Kitchen } from '../../models/Kitchen';
 
 @Component({
   selector: 'app-project',
@@ -6,5 +10,23 @@ import { Component } from '@angular/core';
   styleUrls: ['./project.component.css']
 })
 export class ProjectComponent {
+    kitchens: any=[];
+    kitchen: any;
+    index: number=0;
+    constructor(private kitchenService:KitchensService, private router:Router, private ruta:ActivatedRoute,private location:Location) {}
 
+    ngOnInit() {
+        this.index=  this.ruta.snapshot.params['id'];
+        this.kitchens = this.kitchenService.getKitchens();
+        this.kitchen = this.kitchens.find((kitchen:Kitchen) => kitchen.reference == this.index);
+    }
+    goToHome() {
+        this.router.navigate(['/home']);
+    }
+    goToModify() {
+        this.router.navigate(['/price-modify', this.index]);
+    }
+    goBack() {
+        this.location.back();
+    }
 }

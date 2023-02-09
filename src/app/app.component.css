@@ -1,0 +1,26 @@
+header{
+    border-bottom: solid var(--color-text) 2px;
+}
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+.logo {
+  width: 10rem;
+}
+
+.navigation{
+    display: flex;
+    gap: 1rem;
+}
+.navigation a{
+    font-size: 2.4rem;
+    font-weight: bold;
+}
+
+.active{
+    color: var(--color-white);
+    text-shadow: var(--color-text) 2px 2px 2px;
+}
