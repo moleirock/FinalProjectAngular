@@ -1,10 +1,16 @@
 .modify__field{
+    width: fit-content;
     display: flex;
     align-items: center;
     gap: 2rem;
+    padding: 2rem;
+    border-radius: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--color-text) 2px 2px 7px 0;
 }
 .modify__field label{
     font-size: 2.4rem;
+    font-weight: bold;
 }
 .modify__field input{
     width: 10rem;
