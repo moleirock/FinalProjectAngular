@@ -4,13 +4,13 @@
             <img src={{kitchen.photo}} alt="Imagen Cocina">
         </div>
         <div class="project__content">
-            <p >{{kitchen.description}}</p>
-            <p >{{kitchen.price}} €</p>
-            <button (click)="goToModify()">Modificar el Precio</button>
+            <p>{{kitchen.description}}</p>
+            <p class="project__price">Price {{kitchen.price}} €</p>
+            <button class="btn" (click)="goToModify()">Modificar el Precio</button>
         </div>
     </div>
     <div class="btn__container">
-        <button (click)="goToHome()">Volver al Home</button>
-        <button (click)="goBack()">Volver Atrás</button>
+        <button class="btn" (click)="goToHome()">Volver al Home</button>
+        <button class="btn" (click)="goBack()">Volver Atrás</button>
     </div>
 </section>

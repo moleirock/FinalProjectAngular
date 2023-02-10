@@ -1,0 +1,35 @@
+.project{
+    display: flex;
+    gap: 2rem;
+}
+.project__img img{
+    border-radius: 2rem;
+    box-shadow: var(--color-text) 2px 2px 7px 0px;
+}
+.project__content{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2rem;
+}
+.btn__container{
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+.project__price{
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+@media (max-width: 768px){
+    .project{
+        flex-direction: column;
+    }   
+    .project__content{
+        width: 100%;
+        padding-bottom: 2rem;
+        border-bottom: var(--color-text) 1px solid;
+    }
+}

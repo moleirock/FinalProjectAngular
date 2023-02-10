@@ -1,0 +1,15 @@
+.modify__field{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.modify__field label{
+    font-size: 2.4rem;
+}
+.modify__field input{
+    width: 10rem;
+    padding: 1rem 2rem;
+    border: var(--color-text) 1px solid;
+    border-radius: 1rem;
+    font-size: 2.2rem;
+}
