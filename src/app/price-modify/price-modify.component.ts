@@ -18,24 +18,15 @@ export class PriceModifyComponent {
     ) {}
 
     ngOnInit() {
-        this.kitchenService.getKitchens().subscribe((dataKitchens: any) => {
-            this.kitchens = [];
-            dataKitchens.forEach((kitchen: any) => {
-                this.kitchens.push(
-                    new Kitchen(
-                        kitchen.key,
-                        kitchen.photo,
-                        kitchen.price,
-                        kitchen.description
-                    )
-                );
-            });
+        this.kitchenService.getKitchens().subscribe((dataKitchens: any) => {  
+            this.kitchenService.setKitchens(Object.values(dataKitchens));
+            this.kitchens = this.kitchenService.kitchens;
+            this.kitchen = this.kitchens.find(
+                (kitchen: Kitchen) => kitchen.reference == this.route.snapshot.params['id']
+            );
+            this.price = this.kitchen.price;
         });
-        this.kitchen = this.kitchens.find(
-            (kitchen: Kitchen) =>
-                kitchen.reference == this.route.snapshot.params['id']
-        );
-        this.price = this.kitchen.price;
+
     }
 
     modifyPrice() {

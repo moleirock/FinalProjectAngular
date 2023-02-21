@@ -11,7 +11,7 @@ import { Kitchen } from '../../models/Kitchen.model';
 })
 export class ProjectComponent {
     kitchens: any = [];
-    kitchen: any;
+    kitchen: Kitchen = new Kitchen(10, 'Cocina 1',200,"Description");
     index: number = 0;
     constructor(
         private kitchenService: KitchensService,
@@ -22,22 +22,13 @@ export class ProjectComponent {
 
     ngOnInit() {
         this.index = this.ruta.snapshot.params['id'];
-        this.kitchenService.getKitchens().subscribe((dataKitchens: any) => {
-            this.kitchens = [];
-            dataKitchens.forEach((kitchen: any) => {
-                this.kitchens.push(
-                    new Kitchen(
-                        kitchen.key,
-                        kitchen.photo,
-                        kitchen.price,
-                        kitchen.description
-                    )
-                );
-            });
+        this.kitchenService.getKitchens().subscribe((dataKitchens: any) => {  
+            this.kitchenService.setKitchens(Object.values(dataKitchens));
+            this.kitchens = this.kitchenService.kitchens;
+            this.kitchen = this.kitchens.find(
+                (kitchen: Kitchen) => kitchen.reference == this.index
+            );
         });
-        this.kitchen = this.kitchens.find(
-            (kitchen: Kitchen) => kitchen.reference == this.index
-        );
     }
     goToHome() {
         this.router.navigate(['/home']);

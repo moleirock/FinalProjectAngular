@@ -8,6 +8,31 @@ import { DataService } from './data.service';
 export class KitchensService {
     public kitchens: Kitchen[] = [];
 
+    constructor(private dataService: DataService) {}
+
+    //crear un metodo que busque en la base de datos y devuvelva un array de kitchens creadas con los datos de la base de datos
+    getKitchens() {
+        return this.dataService.getKitchens();
+    }
+
+    setKitchens(kitchens: Kitchen[]) {
+        this.kitchens = [];
+        for (let i = 0; i < kitchens.length; i++) {
+            this.kitchens.push(
+                new Kitchen(
+                    i,
+                    kitchens[i].photo,
+                    kitchens[i].price,
+                    kitchens[i].description
+                )
+            );
+        }
+    }
+
+    setPrice(price: number, index: number) {
+        this.dataService.updateKitchen(index, price);
+    }
+
     /* private kitchens: Kitchen[] = [
         new Kitchen(
             '../../assets/img/cocina1.jpg',
@@ -30,33 +55,4 @@ export class KitchensService {
             'Nulla tincidunt ipsum sed luctus eleifend. Quisque interdum dictum tempus. Proin porta sapien ac lorem pellentesque ultricies. Proin tincidunt feugiat mauris in rhoncus. Phasellus at mi ut elit gravida accumsan a eget magna. Sed pharetra libero mollis turpis finibus, egestas efficitur metus sodales. Mauris a velit sit amet erat condimentum imperdiet. Vestibulum vestibulum fermentum nisi, in luctus eros ultricies dignissim. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aliquam erat volutpat. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed mollis, ligula sed interdum condimentum, metus nisi vehicula risus, id pharetra quam lacus a ante. In viverra velit ac libero porta pharetra pulvinar placerat purus. In hac habitasse platea dictumst.'
         ),
     ]; */
-
-    constructor(private dataService: DataService) {}
-
-    //crear un metodo que busque en la base de datos y devuvelva un array de kitchens creadas con los datos de la base de datos
-    getKitchens() {
-        return this.dataService.getKitchens();
-        
-    }
-    
-   /*  getKitchens() {
-        this.kitchens = [];
-        this.dataService.getKitchens().subscribe((dataKitchens: any) => {
-            dataKitchens.forEach((kitchen: any) => {
-                this.kitchens.push(
-                    new Kitchen(
-                        kitchen.photo,
-                        kitchen.price,
-                        kitchen.description
-                    )
-                );
-            });
-            return this.kitchens;
-        });
-    } */
-     
-    
-    setPrice(price: number, index: number) {
-        this.dataService.updateKitchen(index, price);
-    }
 }
