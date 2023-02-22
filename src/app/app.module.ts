@@ -14,7 +14,6 @@ import { FormsModule } from '@angular/forms';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { DataService } from './services/data.service';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -36,7 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideDatabase(() => getDatabase()),
   ],
-  providers: [KitchensService, DataService],
+  providers: [KitchensService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

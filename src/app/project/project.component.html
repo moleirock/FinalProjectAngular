@@ -1,11 +1,11 @@
 <section class="container">
     <div class="project">
         <div class="project__img">
-            <img src={{kitchen.photo}} alt="Imagen Cocina">
+            <img src={{kitchen?.photo}} alt="Imagen Cocina">
         </div>
         <div class="project__content">
-            <p>{{kitchen.description}}</p>
-            <p class="project__price">Precio {{kitchen.price}} €</p>
+            <p>{{kitchen?.description}}</p>
+            <p class="project__price">Precio {{kitchen?.price}} €</p>
             <button class="btn" (click)="goToModify()">Modificar el Precio</button>
         </div>
     </div>

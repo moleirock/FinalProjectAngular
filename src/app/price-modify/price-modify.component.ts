@@ -18,14 +18,15 @@ export class PriceModifyComponent {
     ) {}
 
     ngOnInit() {
-        this.kitchenService.getKitchens().subscribe((dataKitchens: any) => {  
-            this.kitchenService.setKitchens(Object.values(dataKitchens));
-            this.kitchens = this.kitchenService.kitchens;
+        this.kitchenService.getKitchens().subscribe(
+            (dataKitchens: Kitchen) => {  
+            this.kitchens = dataKitchens;
             this.kitchen = this.kitchens.find(
                 (kitchen: Kitchen) => kitchen.reference == this.route.snapshot.params['id']
             );
+            
             this.price = this.kitchen.price;
-        });
+        },(error)=>console.log(error));
 
     }
 
