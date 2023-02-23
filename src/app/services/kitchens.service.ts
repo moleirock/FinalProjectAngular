@@ -12,7 +12,6 @@ export class KitchensService {
 
     constructor(private httpClient:HttpClient) {}
 
-
     getKitchens():Observable<Kitchen> {
         return this.httpClient.get<Kitchen>('https://finalprojectangular-22bd0-default-rtdb.firebaseio.com/kitchens.json');
     }
